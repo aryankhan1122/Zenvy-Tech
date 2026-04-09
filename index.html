@@ -26,9 +26,29 @@
     .add-btn:hover {background:#1e40af}
     .cart {position:fixed; bottom:25px; right:25px; background:#22c55e; color:white; padding:15px 20px; border-radius:50px; cursor:pointer; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:100}
     .cart span {background:red; color:white; padding:2px 8px; border-radius:50%; margin-left:5px; font-size:14px}
+    
+    /* Checkout Modal */
+    .modal {display:none; position:fixed; z-index:200; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6); overflow:auto}
+    .modal-content {background:white; margin:5% auto; padding:25px; border-radius:12px; width:90%; max-width:500px; animation:slideDown 0.3s}
+    @keyframes slideDown {from{transform:translateY(-50px); opacity:0} to{transform:translateY(0); opacity:1}}
+    .modal h3 {color:#1e3a8a; margin-bottom:20px; text-align:center}
+    .form-group {margin-bottom:15px}
+    .form-group label {display:block; margin-bottom:5px; font-weight:600; color:#1e293b}
+    .form-group input, .form-group textarea {width:100%; padding:10px; border:2px solid #e2e8f0; border-radius:8px; font-size:15px}
+    .form-group input:focus, .form-group textarea:focus {outline:none; border-color:#1e3a8a}
+    .modal-btn {padding:12px; width:100%; border:none; border-radius:8px; font-weight:bold; cursor:pointer; margin-top:10px}
+    .submit-btn {background:#22c55e; color:white}
+    .submit-btn:hover {background:#16a34a}
+    .close-btn {background:#ef4444; color:white}
+    .close-btn:hover {background:#dc2626}
+    .order-summary {background:#f1f5f9; padding:15px; border-radius:8px; margin-bottom:20px}
+    .order-summary h4 {margin-bottom:10px; color:#1e3a8a}
+    .order-item {display:flex; justify-content:space-between; margin:5px 0; font-size:14px}
+    .order-total {border-top:2px solid #cbd5e1; padding-top:10px; margin-top:10px; font-weight:bold; display:flex; justify-content:space-between}
+    
     footer {background:#1e3a8a; color:white; text-align:center; padding:30px 5%; margin-top:40px}
     footer a {color:#f59e0b; text-decoration:none}
-    @media(max-width:600px){.hero h2{font-size:26px} nav{display:none}}
+    @media(max-width:600px){.hero h2{font-size:26px} nav{display:none} .modal-content{margin:10% auto}}
   </style>
 </head>
 <body>
@@ -117,7 +137,48 @@
     <p style="margin-top:10px">Location: Karachi, Pakistan</p>
   </section>
 
-  <div class="cart" onclick="checkout()">🛒 Cart <span id="cartCount">0</span></div>
+  <div class="cart" onclick="openCheckout()">🛒 Cart <span id="cartCount">0</span></div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal">
+    <div class="modal-content">
+      <h3>Complete Your Order</h3>
+      
+      <div class="order-summary" id="orderSummary">
+        <h4>Order Summary</h4>
+        <div id="orderItems"></div>
+        <div class="order-total">
+          <span>Total:</span>
+          <span id="orderTotal">Rs. 0</span>
+        </div>
+      </div>
+
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="customerName" required placeholder="Enter your full name">
+        </div>
+        
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="customerPhone" required placeholder="03XXXXXXXXX">
+        </div>
+        
+        <div class="form-group">
+          <label>Complete Delivery Address *</label>
+          <textarea id="customerAddress" required rows="3" placeholder="House #, Street, Area, City"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Additional Notes (Optional)</label>
+          <textarea id="customerNotes" rows="2" placeholder="Any special instructions..."></textarea>
+        </div>
+
+        <button type="submit" class="modal-btn submit-btn">Place Order on WhatsApp</button>
+        <button type="button" class="modal-btn close-btn" onclick="closeCheckout()">Cancel</button>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <p>© 2026 Zenvy Tech. All Rights Reserved.</p>
@@ -133,23 +194,68 @@ function addToCart(name, price){
   alert(name + " added to cart! ✅");
 }
 
-function checkout(){
+function openCheckout(){
   if(cart.length === 0){
     alert("Your cart is empty! Please add some products first 😄");
     return;
   }
   
-  let message = "Hello! I would like to place an order from Zenvy Tech:%0A%0A";
+  // Show order summary
+  let itemsHTML = '';
   let total = 0;
-
   cart.forEach((item, index) => {
-    message += (index+1) + ". " + item.name + " - Rs." + item.price + "%0A";
+    itemsHTML += `<div class="order-item"><span>${index+1}. ${item.name}</span><span>Rs. ${item.price}</span></div>`;
     total += item.price;
   });
+  
+  document.getElementById('orderItems').innerHTML = itemsHTML;
+  document.getElementById('orderTotal').innerText = 'Rs. ' + total;
+  document.getElementById('checkoutModal').style.display = 'block';
+}
 
-  message += "%0A*Total: Rs." + total + "*%0A%0APlease confirm my order.";
+function closeCheckout(){
+  document.getElementById('checkoutModal').style.display = 'none';
+}
 
-  window.open("https://wa.me/923012800023?text=" + message);
+function submitOrder(event){
+  event.preventDefault();
+  
+  const name = document.getElementById('customerName').value;
+  const phone = document.getElementById('customerPhone').value;
+  const address = document.getElementById('customerAddress').value;
+  const notes = document.getElementById('customerNotes').value;
+  
+  let message = `*NEW ORDER - Zenvy Tech*%0A%0A`;
+  message += `*Customer Details:*%0A`;
+  message += `Name: ${name}%0A`;
+  message += `Phone: ${phone}%0A`;
+  message += `Address: ${address}%0A`;
+  if(notes) message += `Notes: ${notes}%0A`;
+  
+  message += `%0A*Order Items:*%0A`;
+  let total = 0;
+  cart.forEach((item, index) => {
+    message += `${index+1}. ${item.name} - Rs.${item.price}%0A`;
+    total += item.price;
+  });
+  
+  message += `%0A*Total Amount: Rs.${total}*%0A%0APlease confirm my order.`;
+
+  window.open("https://wa.me/923012800023?text=" + encodeURIComponent(message));
+  
+  // Clear cart after order
+  cart = [];
+  document.getElementById('cartCount').innerText = 0;
+  closeCheckout();
+  document.getElementById('orderForm').reset();
+}
+
+// Close modal if clicked outside
+window.onclick = function(event) {
+  const modal = document.getElementById('checkoutModal');
+  if (event.target == modal) {
+    closeCheckout();
+  }
 }
 </script>
 
