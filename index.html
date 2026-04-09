@@ -10,28 +10,39 @@
     header {background:#1e3a8a; color:white; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position:fixed; top:0; left:0; right:0; z-index:100}
     header h1 {font-size:24px}
     nav a {color:white; text-decoration:none; margin-left:20px; font-weight:500}
-    .hero {background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1607082348824-0a96f2a7b9da')center/cover; color:white; text-align:center; padding:80px 20px}
-    .hero h2 {font-size:36px; margin-bottom:10px}
-    .btn {background:#f59e0b; color:black; padding:12px 25px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; text-decoration:none; display:inline-block; margin-top:15px}
+    
+    /* HERO SECTION - AB MARKET WALI PHOTO LAG GAYI */
+    .hero {background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=1200')center/cover; color:white; text-align:center; padding:100px 20px}
+    .hero h2 {font-size:40px; margin-bottom:10px; text-shadow:2px 2px 4px rgba(0,0,0,0.5)}
+    .hero p {font-size:18px; text-shadow:1px 1px 2px rgba(0,0,0,0.5)}
+    .btn {background:#f59e0b; color:black; padding:12px 25px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; text-decoration:none; display:inline-block; margin-top:20px}
+    
     .section {padding:50px 5%}
     .section h2 {font-size:30px; margin-bottom:30px; color:#1e3a8a; text-align:center}
     .products {display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px}
-    .card {background:white; border-radius:12px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.08); text-align:center; transition:0.3s}
-    .card:hover {transform:translateY(-5px)}
+    .card {background:white; border-radius:12px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.08); text-align:center; transition:0.3s; cursor:pointer}
+    .card:hover {transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15)}
     .card img {width:100%; height:160px; object-fit:cover; border-radius:8px}
     .card h3 {margin:12px 0 5px; color:#1e3a8a; font-size:18px}
     .card p {color:#64748b; font-size:14px; margin:8px 0}
     .price {color:#059669; font-weight:bold; font-size:18px; margin:8px 0}
     .add-btn {margin-top:10px; padding:10px; width:100%; border:none; background:#1e3a8a; color:white; cursor:pointer; border-radius:8px; font-weight:600}
     .add-btn:hover {background:#1e40af}
+    .view-btn {margin-top:8px; padding:10px; width:100%; border:2px solid #1e3a8a; background:white; color:#1e3a8a; cursor:pointer; border-radius:8px; font-weight:600}
+    .view-btn:hover {background:#f1f5f9}
     .cart {position:fixed; bottom:25px; right:25px; background:#22c55e; color:white; padding:15px 20px; border-radius:50px; cursor:pointer; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:100}
     .cart span {background:red; color:white; padding:2px 8px; border-radius:50%; margin-left:5px; font-size:14px}
     
-    /* Checkout Modal */
-    .modal {display:none; position:fixed; z-index:200; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6); overflow:auto}
-    .modal-content {background:white; margin:5% auto; padding:25px; border-radius:12px; width:90%; max-width:500px; animation:slideDown 0.3s}
+    /* CATEGORY MODAL */
+    .modal {display:none; position:fixed; z-index:200; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7); overflow:auto}
+    .modal-content {background:#f8fafc; margin:3% auto; padding:25px; border-radius:12px; width:95%; max-width:1200px; animation:slideDown 0.3s; max-height:90vh; overflow-y:auto}
     @keyframes slideDown {from{transform:translateY(-50px); opacity:0} to{transform:translateY(0); opacity:1}}
-    .modal h3 {color:#1e3a8a; margin-bottom:20px; text-align:center}
+    .modal-header {display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:15px; border-bottom:2px solid #e2e8f0}
+    .modal-header h3 {color:#1e3a8a; font-size:24px}
+    .close-modal {background:#ef4444; color:white; border:none; padding:8px 16px; border-radius:8px; cursor:pointer; font-weight:bold}
+    .close-modal:hover {background:#dc2626}
+    
+    /* CHECKOUT MODAL */
     .form-group {margin-bottom:15px}
     .form-group label {display:block; margin-bottom:5px; font-weight:600; color:#1e293b}
     .form-group input, .form-group textarea {width:100%; padding:10px; border:2px solid #e2e8f0; border-radius:8px; font-size:15px}
@@ -41,14 +52,14 @@
     .submit-btn:hover {background:#16a34a}
     .close-btn {background:#ef4444; color:white}
     .close-btn:hover {background:#dc2626}
-    .order-summary {background:#f1f5f9; padding:15px; border-radius:8px; margin-bottom:20px}
+    .order-summary {background:white; padding:15px; border-radius:8px; margin-bottom:20px}
     .order-summary h4 {margin-bottom:10px; color:#1e3a8a}
     .order-item {display:flex; justify-content:space-between; margin:5px 0; font-size:14px}
     .order-total {border-top:2px solid #cbd5e1; padding-top:10px; margin-top:10px; font-weight:bold; display:flex; justify-content:space-between}
     
     footer {background:#1e3a8a; color:white; text-align:center; padding:30px 5%; margin-top:40px}
     footer a {color:#f59e0b; text-decoration:none}
-    @media(max-width:600px){.hero h2{font-size:26px} nav{display:none} .modal-content{margin:10% auto}}
+    @media(max-width:600px){.hero h2{font-size:26px} nav{display:none} .modal-content{margin:5% auto; width:98%}}
   </style>
 </head>
 <body>
@@ -70,79 +81,58 @@
   </section>
 
   <section class="section" id="products">
-    <h2>Our Products</h2>
+    <h2>Our Categories</h2>
     <div class="products">
       
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400" alt="Bag">
-        <h3>School Backpack</h3>
-        <p>Premium quality, like new condition</p>
-        <p class="price">Rs. 1,200</p>
-        <button class="add-btn" onclick="addToCart('School Backpack',1200)">Add to Cart</button>
+      <div class="card" onclick="openCategory('bags')">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400" alt="Bags">
+        <h3>Bags Collection</h3>
+        <p>School, Travel, Laptop Bags - 15+ Varieties</p>
+        <button class="view-btn">View All Bags</button>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="openCategory('toys')">
         <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400" alt="Toys">
-        <h3>Kids Toy Set</h3>
-        <p>Assorted cars & dolls collection</p>
-        <p class="price">Rs. 500</p>
-        <button class="add-btn" onclick="addToCart('Kids Toy Set',500)">Add to Cart</button>
+        <h3>Toys & Games</h3>
+        <p>Cars, Dolls, Educational Toys - 20+ Items</p>
+        <button class="view-btn">View All Toys</button>
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400" alt="Earbuds">
-        <h3>Wireless Earbuds</h3>
-        <p>High quality sound, long battery life</p>
-        <p class="price">Rs. 1,800</p>
-        <button class="add-btn" onclick="addToCart('Wireless Earbuds',1800)">Add to Cart</button>
+      <div class="card" onclick="openCategory('gadgets')">
+        <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400" alt="Gadgets">
+        <h3>Electronics & Gadgets</h3>
+        <p>Earbuds, Watches, Phones - 10+ Items</p>
+        <button class="view-btn">View All Gadgets</button>
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" alt="Watch">
-        <h3>Smart Watch</h3>
-        <p>Used, excellent working condition</p>
-        <p class="price">Rs. 2,500</p>
-        <button class="add-btn" onclick="addToCart('Smart Watch',2500)">Add to Cart</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400" alt="Crockery">
-        <h3>Crockery Set</h3>
-        <p>6 Plates + 6 Cups premium set</p>
-        <p class="price">Rs. 900</p>
-        <button class="add-btn" onclick="addToCart('Crockery Set',900)">Add to Cart</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Shoes">
-        <h3>Sports Shoes</h3>
-        <p>Available in sizes 40-44</p>
-        <p class="price">Rs. 1,500</p>
-        <button class="add-btn" onclick="addToCart('Sports Shoes',1500)">Add to Cart</button>
+      <div class="card" onclick="openCategory('home')">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400" alt="Home">
+        <h3>Home Essentials</h3>
+        <p>Crockery, Decor, Kitchen Items - 25+ Items</p>
+        <button class="view-btn">View All Items</button>
       </div>
 
     </div>
   </section>
 
-  <section class="section" id="about" style="background:white">
-    <h2>Why Choose Zenvy Tech?</h2>
-    <p style="max-width:700px; margin:auto; line-height:1.8; text-align:center">We are Karachi's most trusted online store for quality products at affordable prices. Every item is thoroughly checked before delivery. Used products are in excellent condition. Get up to 50% off market rates. Simply add to cart and checkout via WhatsApp for fast home delivery.</p>
-  </section>
-
-  <section class="section" id="contact" style="text-align:center">
-    <h2>Contact Us</h2>
-    <p>For orders or inquiries:</p>
-    <br>
-    <p style="font-size:18px; font-weight:bold">WhatsApp: 03012800023</p>
-    <p style="margin-top:10px">Location: Karachi, Pakistan</p>
-  </section>
-
-  <div class="cart" onclick="openCheckout()">🛒 Cart <span id="cartCount">0</span></div>
-
-  <!-- Checkout Modal -->
-  <div id="checkoutModal" class="modal">
+  <!-- CATEGORY MODAL -->
+  <div id="categoryModal" class="modal">
     <div class="modal-content">
-      <h3>Complete Your Order</h3>
+      <div class="modal-header">
+        <h3 id="categoryTitle">Products</h3>
+        <button class="close-modal" onclick="closeCategory()">✕ Close</button>
+      </div>
+      <div class="products" id="categoryProducts"></div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkoutModal" class="modal">
+    <div class="modal-content" style="max-width:500px; background:white;">
+      <div class="modal-header">
+        <h3>Complete Your Order</h3>
+        <button class="close-modal" onclick="closeCheckout()">✕</button>
+      </div>
       
       <div class="order-summary" id="orderSummary">
         <h4>Order Summary</h4>
@@ -166,7 +156,7 @@
         
         <div class="form-group">
           <label>Complete Delivery Address *</label>
-          <textarea id="customerAddress" required rows="3" placeholder="House #, Street, Area, City"></textarea>
+        <textarea id="customerAddress" required rows="3" placeholder="House #, Street, Area, City"></textarea>
         </div>
         
         <div class="form-group">
@@ -175,89 +165,11 @@
         </div>
 
         <button type="submit" class="modal-btn submit-btn">Place Order on WhatsApp</button>
-        <button type="button" class="modal-btn close-btn" onclick="closeCheckout()">Cancel</button>
       </form>
     </div>
   </div>
 
-  <footer>
-    <p>© 2026 Zenvy Tech. All Rights Reserved.</p>
-    <p><a href="#home">Back to Top</a></p>
-  </footer>
-
-<script>
-let cart = [];
-
-function addToCart(name, price){
-  cart.push({name, price});
-  document.getElementById('cartCount').innerText = cart.length;
-  alert(name + " added to cart! ✅");
-}
-
-function openCheckout(){
-  if(cart.length === 0){
-    alert("Your cart is empty! Please add some products first 😄");
-    return;
-  }
-  
-  // Show order summary
-  let itemsHTML = '';
-  let total = 0;
-  cart.forEach((item, index) => {
-    itemsHTML += `<div class="order-item"><span>${index+1}. ${item.name}</span><span>Rs. ${item.price}</span></div>`;
-    total += item.price;
-  });
-  
-  document.getElementById('orderItems').innerHTML = itemsHTML;
-  document.getElementById('orderTotal').innerText = 'Rs. ' + total;
-  document.getElementById('checkoutModal').style.display = 'block';
-}
-
-function closeCheckout(){
-  document.getElementById('checkoutModal').style.display = 'none';
-}
-
-function submitOrder(event){
-  event.preventDefault();
-  
-  const name = document.getElementById('customerName').value;
-  const phone = document.getElementById('customerPhone').value;
-  const address = document.getElementById('customerAddress').value;
-  const notes = document.getElementById('customerNotes').value;
-  
-  let message = `*NEW ORDER - Zenvy Tech*%0A%0A`;
-  message += `*Customer Details:*%0A`;
-  message += `Name: ${name}%0A`;
-  message += `Phone: ${phone}%0A`;
-  message += `Address: ${address}%0A`;
-  if(notes) message += `Notes: ${notes}%0A`;
-  
-  message += `%0A*Order Items:*%0A`;
-  let total = 0;
-  cart.forEach((item, index) => {
-    message += `${index+1}. ${item.name} - Rs.${item.price}%0A`;
-    total += item.price;
-  });
-  
-  message += `%0A*Total Amount: Rs.${total}*%0A%0APlease confirm my order.`;
-
-  window.open("https://wa.me/923012800023?text=" + encodeURIComponent(message));
-  
-  // Clear cart after order
-  cart = [];
-  document.getElementById('cartCount').innerText = 0;
-  closeCheckout();
-  document.getElementById('orderForm').reset();
-}
-
-// Close modal if clicked outside
-window.onclick = function(event) {
-  const modal = document.getElementById('checkoutModal');
-  if (event.target == modal) {
-    closeCheckout();
-  }
-}
-</script>
-
-</body>
-</html>
+  <section class="section" id="about" style="background:white">
+    <h2>Why Choose Zenvy Tech?</h2>
+    <p style="max-width:700px; margin:auto; line-height:1.8; text-align:center">We are Karachi's most trusted online store for quality products at affordable prices. Every item is thoroughly checked before delivery. Used products are in excellent condition. Get up to 50% off
+      
