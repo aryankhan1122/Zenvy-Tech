@@ -3,68 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zenvy Tech - Official Online Marketplace</title>
+  <title>Zenvy Tech - Official</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif}
     :root {
-      --primary:#2563eb; --primary-dark:#1e40af; --secondary:#f59e0b; --success:#22c55e; --danger:#ef4444; --bg:#f1f5f9; --card:#ffffff; --text:#0f172a; --text-light:#64748b; --border:#e2e8f0;
+      --primary:#00b4d8; --primary-dark:#0096c7; --secondary:#f8f9fa; --text:#1a1a1a; --text-light:#6c757d; --border:#e9ecef; --success:#25d366;
     }
-    body {background:var(--bg); color:var(--text); padding-top:75px}
-    header {background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position:fixed; top:0; left:0; right:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-    .logo {display:flex; align-items:center; gap:10px}
-    .logo h1 {font-size:26px; font-weight:700}
-    .logo span {background:var(--secondary); color:var(--text); padding:2px 8px; border-radius:6px; font-size:11px; font-weight:600}
-    nav {display:flex; gap:25px; align-items:center}
-    nav a {color:white; text-decoration:none; font-weight:500; font-size:15px; transition:0.2s}
-    nav a:hover {color:var(--secondary)}
-    .hero {background:linear-gradient(rgba(37,99,235,0.9),rgba(30,64,175,0.9)),url('https://images.unsplash.com/photo-1557821552-17105176677c?w=1400')center/cover; color:white; text-align:center; padding:100px 20px 60px}
-    .hero h2 {font-size:42px; margin-bottom:15px; font-weight:700; text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
-    .hero p {font-size:18px; margin-bottom:25px; opacity:0.95}
-    .stats {display:flex; justify-content:center; gap:40px; margin-top:30px; flex-wrap:wrap}
-    .stat {text-align:center}
-    .stat h3 {font-size:32px; font-weight:700; color:var(--secondary)}
-    .stat p {font-size:14px; opacity:0.9}
-    .btn {background:var(--secondary); color:var(--text); padding:14px 32px; border:none; border-radius:10px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; font-size:16px; transition:0.3s; box-shadow:0 4px 12px rgba(245,158,11,0.3)}
-    .btn:hover {transform:translateY(-2px); box-shadow:0 6px 16px rgba(245,158,11,0.4)}
-    .section {padding:50px 5%}
-    .section-header {text-align:center; margin-bottom:40px}
-    .section-header h2 {font-size:32px; margin-bottom:10px; color:var(--primary); font-weight:700}
-    .section-header p {color:var(--text-light); font-size:15px}
-    .coming-soon {text-align:center; padding:80px 20px; background:var(--card); border-radius:16px; border:2px dashed var(--border)}
-    .coming-soon h3 {font-size:28px; margin-bottom:15px; color:var(--text)}
-    .coming-soon p {color:var(--text-light); font-size:16px}
-    .trust-badges {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin:40px 0}
-    .badge {text-align:center; padding:20px; background:var(--card); border-radius:12px; border:1px solid var(--border)}
-    .badge-icon {font-size:32px; margin-bottom:10px}
-    .badge h4 {font-size:16px; margin-bottom:5px; color:var(--text)}
-    .badge p {font-size:13px; color:var(--text-light)}
-    footer {background:var(--text); color:white; padding:50px 5% 20px; margin-top:60px}
-    .footer-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; margin-bottom:30px}
-    .footer-col h4 {margin-bottom:15px; font-size:18px}
-    .footer-col p, .footer-col a {color:#cbd5e1; font-size:14px; line-height:1.8; text-decoration:none; display:block; margin-bottom:8px}
-    .footer-col a:hover {color:var(--secondary)}
-    .footer-bottom {border-top:1px solid #334155; padding-top:20px; text-align:center; color:#94a3b8; font-size:14px}
-    .social-links {display:flex; gap:15px; margin-top:15px}
-    .social-links a {width:38px; height:38px; background:#334155; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; transition:0.2s}
-    .social-links a:hover {background:var(--secondary); color:var(--text)}
-    .map-container {margin:25px auto; max-width:700px; border-radius:16px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); border:1px solid var(--border)}
-    .products {display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:24px}
-    .card {background:var(--card); border-radius:16px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); transition:0.3s; border:1px solid var(--border)}
-    .card:hover {transform:translateY(-6px); box-shadow:0 12px 24px rgba(0,0,0,0.12)}
-    .card-img-wrap {position:relative; width:100%; height:220px; background:#f8fafc; overflow:hidden; display:flex; align-items:center; justify-content:center; color:var(--text-light); font-size:14px}
-    .card img {width:100%; height:100%; object-fit:contain; padding:15px}
+    body {background:#fff; color:var(--text)}
+    header {background:white; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+    .logo h1 {font-size:24px; font-weight:700; color:var(--primary)}
+    .menu-icon {font-size:24px; cursor:pointer}
+    .hero {position:relative; height:70vh; background:url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200')center/cover; display:flex; align-items:center; padding:0 5%}
+    .hero-content {position:relative; z-index:2}
+    .hero-content h2 {font-size:52px; font-weight:700; color:var(--primary); margin-bottom:10px}
+    .hero-tagline {font-size:18px; color:var(--text); opacity:0.8}
+    .section {padding:60px 5%}
+    .section-title {text-align:center; font-size:28px; font-weight:600; margin-bottom:40px}
+    .filters {display:flex; gap:12px; justify-content:center; margin-bottom:40px; flex-wrap:wrap}
+    .filter-btn {padding:10px 24px; border:none; border-radius:8px; background:#f1f3f5; color:var(--text); font-weight:500; cursor:pointer; transition:0.2s}
+    .filter-btn.active {background:var(--primary); color:white}
+    .products {display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:24px}
+    .card {background:white; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); transition:0.3s}
+    .card:hover {transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.1)}
+    .card-img-wrap {width:100%; height:280px; background:#f8f9fa; display:flex; align-items:center; justify-content:center}
+    .card img {width:100%; height:100%; object-fit:cover}
     .card-content {padding:16px}
-    .card-category {color:var(--text-light); font-size:11px; text-transform:uppercase; font-weight:600; letter-spacing:0.5px}
-    .card h3 {margin:6px 0 10px; color:var(--text); font-size:15px; line-height:1.4; min-height:42px; font-weight:600}
-    .card-price-wrap {display:flex; align-items:baseline; gap:8px; margin:12px 0}
-    .price {color:var(--success); font-weight:700; font-size:20px}
+    .card h3 {font-size:16px; margin-bottom:8px; font-weight:600}
+    .card-price-wrap {display:flex; align-items:baseline; gap:8px}
+    .price {color:var(--primary); font-weight:700; font-size:20px}
     .old-price {color:var(--text-light); text-decoration:line-through; font-size:14px}
-    .discount {background:#dcfce7; color:var(--success); padding:2px 6px; border-radius:4px; font-size:11px; font-weight:600}
+    .features {background:#f8f9fa; padding:60px 5%}
+    .feature-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; max-width:1000px; margin:0 auto}
+    .feature {text-align:center}
+    .feature-icon {width:60px; height:60px; margin:0 auto 16px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+    .feature h3 {font-size:18px; margin-bottom:8px; font-weight:600}
+    .feature p {color:var(--text-light); font-size:14px; line-height:1.6}
+    .testimonials {padding:60px 5%; background:white}
+    .testimonial-grid {display:grid; gap:16px; max-width:700px; margin:0 auto}
+    .testimonial {background:#f8f9fa; padding:20px; border-radius:12px}
+    .testimonial p {font-size:15px; line-height:1.7; margin-bottom:12px; color:var(--text)}
+    .testimonial .author {font-weight:600; font-size:14px; color:var(--text-light)}
+    .newsletter {background:#1a1a1a; color:white; padding:60px 5%; text-align:center}
+    .newsletter h2 {font-size:28px; margin-bottom:12px}
+    .newsletter p {opacity:0.8; margin-bottom:24px}
+    .newsletter-form {display:flex; gap:0; max-width:500px; margin:0 auto; border-radius:8px; overflow:hidden}
+    .newsletter-form input {flex:1; padding:14px 18px; border:none; font-size:15px}
+    .newsletter-form button {padding:14px 32px; background:var(--primary); color:white; border:none; font-weight:600; cursor:pointer}
+    .stats {padding:60px 5%; text-align:center}
+    .stats-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:40px; max-width:800px; margin:0 auto}
+    .stat h3 {font-size:42px; font-weight:700; color:var(--primary); margin-bottom:8px}
+    .stat p {color:var(--text-light); font-size:15px}
+    footer {background:#1a1a1a; color:white; padding:50px 5% 20px}
+    .footer-content {text-align:center; margin-bottom:40px}
+    .footer-content h3 {color:var(--primary); font-size:24px; margin-bottom:12px}
+    .footer-content p {opacity:0.7; font-size:14px; max-width:400px; margin:0 auto}
+    .footer-links {margin:30px 0}
+    .footer-links h4 {color:var(--primary); margin-bottom:16px; font-size:16px}
+    .footer-links a {color:white; text-decoration:none; display:block; margin-bottom:10px; opacity:0.8; font-size:14px}
+    .footer-contact {margin:30px 0}
+    .footer-contact h4 {color:var(--primary); margin-bottom:16px; font-size:16px}
+    .footer-contact p {opacity:0.8; font-size:14px; margin-bottom:8px}
+    .footer-bottom {border-top:1px solid #333; padding-top:20px; text-align:center; opacity:0.6; font-size:13px}
+    .whatsapp-float {position:fixed; bottom:20px; right:20px; width:56px; height:56px; background:var(--success); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; color:white; text-decoration:none; box-shadow:0 4px 12px rgba(37,211,102,0.4); z-index:99}
+    .empty-state {text-align:center; padding:80px 20px; background:#f8f9fa; border-radius:16px; grid-column:1/-1}
+    .empty-state h3 {font-size:24px; margin-bottom:12px}
+    .empty-state p {color:var(--text-light)}
     @media(max-width:768px){
-      header{padding:12px 4%} .logo h1{font-size:20px} nav{display:none}
-      .hero h2{font-size:28px} .hero{padding:80px 20px 40px} .stats{gap:25px}
-      .section{padding:35px 4%}
+      .hero-content h2{font-size:36px} .hero{height:60vh}
+      .section{padding:40px 5%} .stats-grid{gap:30px}
     }
   </style>
 </head>
@@ -72,128 +79,135 @@
 
   <header>
     <div class="logo">
-      <h1>Zenvy Tech</h1>
-      <span>Official</span>
+      <h1>ZENVY TECH</h1>
     </div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#products">Shop</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="menu-icon">☰</div>
   </header>
 
-  <section class="hero" id="home">
-    <h2>Quality Gadgets & Home Essentials at Wholesale Prices</h2>
-    <p>Your trusted partner for Electronics, Home & Kitchen, Beauty Products, and Kids Toys with Fast COD Delivery across Pakistan</p>
-    <a href="#products" class="btn">Explore Products 🛍️</a>
-    <div class="stats">
-      <div class="stat"><h3>50+</h3><p>Products</p></div>
-      <div class="stat"><h3>500+</h3><p>Happy Customers</p></div>
-      <div class="stat"><h3>24/7</h3><p>Support</p></div>
-      <div class="stat"><h3>COD</h3><p>All Pakistan</p></div>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Zenvy Tech</h2>
+      <p class="hero-tagline">Smart Living, Delivered to Your Doorstep</p>
     </div>
   </section>
 
-  <section class="section" id="products">
-    <div class="section-header">
-      <h2>Featured Products</h2>
-      <p>Premium quality products at unbeatable wholesale prices</p>
+  <section class="section">
+    <h2 class="section-title">Our Collection</h2>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+      <button class="filter-btn" onclick="filterProducts('electronics')">Electronics</button>
+      <button class="filter-btn" onclick="filterProducts('home')">Home</button>
+      <button class="filter-btn" onclick="filterProducts('beauty')">Beauty</button>
+      <button class="filter-btn" onclick="filterProducts('kids')">Kids</button>
     </div>
-    <div class="products" id="productsContainer">
-      <div class="coming-soon">
-        <h3>🚀 New Stock Arriving Soon</h3>
-        <p>Hum rozana naye products add kar rahe hain. WhatsApp pe rabta karein fresh arrivals ke liye.<br>📱 03012800023</p>
-      </div>
-    </div>
+    <div class="products" id="productsContainer"></div>
   </section>
 
-  <section class="section" style="background:white">
-    <div class="section-header">
-      <h2>Why Shop With Zenvy Tech?</h2>
-    </div>
-    <div class="trust-badges">
-      <div class="badge">
-        <div class="badge-icon">🚚</div>
-        <h4>Fast Delivery</h4>
-        <p>Karachi: 1-2 days<br>Other cities: 3-5 days</p>
+  <section class="features">
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Free Shipping</h3>
+        <p>Enjoy free shipping on all orders over Rs. 2000 across Pakistan</p>
       </div>
-      <div class="badge">
-        <div class="badge-icon">💰</div>
-        <h4>Cash on Delivery</h4>
-        <p>Pay when you receive<br>No advance payment</p>
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure Checkout</h3>
+        <p>Shop with confidence with our secure payment system</p>
       </div>
-      <div class="badge">
-        <div class="badge-icon">✅</div>
-        <h4>Quality Checked</h4>
-        <p>Every item tested<br>Before dispatch</p>
-      </div>
-      <div class="badge">
-        <div class="badge-icon">🔄</div>
-        <h4>Easy Returns</h4>
-        <p>7-day return policy<br>No questions asked</p>
+      <div class="feature">
+        <div class="feature-icon">🔄</div>
+        <h3>Easy Returns</h3>
+        <p>Not happy? Return within 7 days hassle-free</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact" style="text-align:center; background:white">
-    <div class="section-header">
-      <h2>Visit Our Store</h2>
-      <p>📍 Napier Quarter, Karachi | WhatsApp: 03012800023</p>
+  <section class="testimonials">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"Amazing quality and fast delivery. Highly recommended!"</p>
+        <div class="author">- Ahsan Raza</div>
+      </div>
+      <div class="testimonial">
+        <p>"Loved the products and service. Will shop again soon."</p>
+        <div class="author">- Fatima Khan</div>
+      </div>
+      <div class="testimonial">
+        <p>"The customer support team was super helpful. 10/10!"</p>
+        <div class="author">- Bilal Ahmed</div>
+      </div>
     </div>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps?q=Napier+Quarter+Karachi&output=embed" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Get the latest updates, offers, and product launches</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!')">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat">
+        <h3>500+</h3>
+        <p>Happy Customers</p>
+      </div>
+      <div class="stat">
+        <h3>1200+</h3>
+        <p>Orders Delivered</p>
+      </div>
+      <div class="stat">
+        <h3>80+</h3>
+        <p>Products in Store</p>
+      </div>
     </div>
   </section>
 
   <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Zenvy Tech</h4>
-        <p>Pakistan's trusted online marketplace for quality products at wholesale prices. Serving Karachi since 2024.</p>
-        <p style="margin-top:15px">📞 03012800023<br>📍 Napier Quarter, Karachi</p>
-        <div class="social-links">
-          <a href="#" title="Facebook">f</a>
-          <a href="#" title="Instagram">📷</a>
-        </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="#home">Home</a>
-        <a href="#products">All Products</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Customer Service</h4>
-        <a href="#">Shipping Policy</a>
-        <a href="#">Returns & Refunds</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-      <div class="footer-col">
-        <h4>Payment Methods</h4>
-        <p>✓ Cash on Delivery</p>
-        <p>✓ Easypaisa: 03012800023</p>
-        <p>✓ JazzCash: 03012800023</p>
-        <p>✓ Bank Transfer</p>
-      </div>
+    <div class="footer-content">
+      <h3>Zenvy Tech</h3>
+      <p>Your trusted partner for quality gadgets & home essentials at wholesale prices. Serving Karachi since 2024.</p>
     </div>
+    
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#">Home</a>
+      <a href="#products">Shop</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>WhatsApp: 03012800023</p>
+      <p>Easypaisa: 03012800023</p>
+      <p>JazzCash: 03012800023</p>
+      <p>📍 Napier Quarter, Karachi</p>
+    </div>
+
     <div class="footer-bottom">
-      <p>© 2026 Zenvy Tech. All Rights Reserved. | Made with ❤️ in Karachi</p>
+      <p>© 2026 Zenvy Tech. All Rights Reserved.</p>
     </div>
   </footer>
 
+  <a href="https://wa.me/923012800023" class="whatsapp-float" target="_blank">💬</a>
+
 <script>
-// WhatsApp number for orders
 const WHATSAPP_NUMBER = '923012800023';
 
-// Products array - yahan products add karte jana
 const products = [];
 
-function displayProducts(filter = 'all') {
+let currentFilter = 'all';
+
+function displayProducts() {
   const container = document.getElementById('productsContainer');
-  if(!container) return;
   
   if(products.length === 0) {
     container.innerHTML = `
-      <div class="coming-soon">
+      <div class="empty-state">
         <h3>🚀 New Stock Arriving Soon</h3>
         <p>Hum rozana naye products add kar rahe hain. WhatsApp pe rabta karein fresh arrivals ke liye.<br>📱 03012800023</p>
       </div>
@@ -201,24 +215,29 @@ function displayProducts(filter = 'all') {
     return;
   }
   
-  const filteredProducts = filter === 'all' ? products : products.filter(p => p.category === filter);
+  const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
   
-  container.innerHTML = filteredProducts.map(product => `
+  container.innerHTML = filtered.map(p => `
     <div class="card">
       <div class="card-img-wrap">
-        <img src="${product.img}" alt="${product.name}" onerror="this.parentElement.innerHTML='No Image Yet'">
+        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='No Image Yet'">
       </div>
       <div class="card-content">
-        <div class="card-category">${product.category}</div>
-        <h3>${product.name}</h3>
+        <h3>${p.name}</h3>
         <div class="card-price-wrap">
-          <span class="price">Rs. ${product.price}</span>
-          ${product.oldPrice ? `<span class="old-price">Rs. ${product.oldPrice}</span>` : ''}
-          ${product.oldPrice ? `<span class="discount">${Math.round((1 - product.price/product.oldPrice)*100)}% OFF</span>` : ''}
+          <span class="price">Rs. ${p.price}</span>
+          ${p.oldPrice ? `<span class="old-price">Rs. ${p.oldPrice}</span>` : ''}
         </div>
       </div>
     </div>
   `).join('');
+}
+
+function filterProducts(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  displayProducts();
 }
 
 displayProducts();
